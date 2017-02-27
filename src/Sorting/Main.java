@@ -8,12 +8,10 @@ import javafx.stage.Stage;
 
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.concurrent.ThreadLocalRandom;
 
 public class Main extends Application {
 
     private final int N = 20;
-    private int latestNumber = N;
     @Override
     public void start(Stage primaryStage) throws Exception{
 
