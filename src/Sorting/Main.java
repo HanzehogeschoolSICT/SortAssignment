@@ -1,13 +1,11 @@
 package Sorting;
 
+import Sorting.Controllers.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
-import java.util.Random;
 
 public class Main extends Application {
     private final int N = 20;
@@ -21,7 +19,7 @@ public class Main extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        Controller mainController = new Controller(scene);
+        MainController mainController = new MainController(scene);
 
     }
 

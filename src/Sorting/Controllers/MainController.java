@@ -1,4 +1,4 @@
-package Sorting;
+package Sorting.Controllers;
 
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -14,11 +14,11 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Controller {
+public class MainController {
 
     private Scene scene;
 
-    public Controller(Scene scene) {
+    public MainController(Scene scene) {
         this.scene = scene;
         Node bubbleSort = scene.lookup("#bubblesortAnchor");
         AnchorPane bubbleSortTab = (AnchorPane) bubbleSort;
