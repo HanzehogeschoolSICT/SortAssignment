@@ -28,7 +28,8 @@ public class BarChartController {
             series1.getData().add(new XYChart.Data(number.toString(), number));
         }
 
-        bc.setMaxHeight(300);
+        bc.setMaxHeight(330);
+        bc.setPrefWidth(600);
         bc.setBarGap(0);
         bc.setCategoryGap(0);
         bc.getData().add(series1);

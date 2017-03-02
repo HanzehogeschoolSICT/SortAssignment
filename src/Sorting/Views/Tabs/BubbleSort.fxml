@@ -11,7 +11,7 @@
 
 <Tab text="BubbleSort" id="bubbleSort" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sorting.Controllers.tabControllers.BubbleSortController">
     <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
-        <AnchorPane fx:id="bubbleSortAnchor" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="600.0">
+        <AnchorPane fx:id="bubbleSortAnchor" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="600.0" centerShape="true">
 
         </AnchorPane>
         <ToolBar prefHeight="38.0" prefWidth="600.0">
