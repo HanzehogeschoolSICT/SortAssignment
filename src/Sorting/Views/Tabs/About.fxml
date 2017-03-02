@@ -1,8 +1,14 @@
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.control.Tab?>
+<?xml version="1.0" encoding="UTF-8"?>
 
-<Tab text="About" id="about">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-    </AnchorPane>
+<Tab text="About" id="about" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sorting.Controllers.tabControllers.AboutController">
+    <VBox minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+        <Label alignment="BOTTOM_CENTER" prefHeight="40.0" prefWidth="600.0" text="This application is being developed by:" />
+        <Label alignment="CENTER" prefHeight="50.0" prefWidth="600.0" text="Ruben Buisman and Koen Hendriks." />
+        <Label alignment="BOTTOM_CENTER" prefHeight="44.0" prefWidth="600.0" text="You can find the code for this project on GitHub" />
+        <Hyperlink fx:id="githubLink" alignment="CENTER" prefHeight="15" prefWidth="600"  text="https://github.com/koenhendriks/SortAssignment" onMouseClicked="#openGithub" />
+    </VBox>
 </Tab>
