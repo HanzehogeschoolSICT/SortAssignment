@@ -18,6 +18,9 @@ public class BubbleSortController{
     public void initialize(){
 
         this.bc = BarChartController.getRandomBarChart(20);
+
         bubbleSortAnchor.getChildren().add(this.bc);
+
+
     }
 }

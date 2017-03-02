@@ -1,8 +1,26 @@
-<?import javafx.scene.control.Tab?>
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Tab?>
 
 <Tab text="BubbleSort" id="bubbleSort" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sorting.Controllers.tabControllers.BubbleSortController">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" fx:id="bubbleSortAnchor">
+    <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1">
+        <AnchorPane fx:id="bubbleSortAnchor" minHeight="0.0" minWidth="0.0" prefHeight="330.0" prefWidth="600.0">
 
-    </AnchorPane>
+        </AnchorPane>
+        <ToolBar prefHeight="38.0" prefWidth="600.0">
+            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Step" fx:id="stepButton" />
+            <Button alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" text="Reset" fx:id="resetButton" />
+            <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="215.0">
+                <Label alignment="CENTER" prefHeight="20.0" prefWidth="167.0" text="Speed (ms):" />
+                <TextField text="100" fx:id="speedTextField" />
+            </HBox>
+        </ToolBar>
+    </VBox>
 </Tab>

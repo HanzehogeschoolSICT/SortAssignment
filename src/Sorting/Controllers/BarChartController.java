@@ -6,6 +6,8 @@ import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Random;
 
 /**
@@ -23,7 +25,7 @@ public class BarChartController {
         series1.setName("random numbers");
 
         for (Integer number : randomList) {
-            series1.getData().add(new XYChart.Data(""+number, number));
+            series1.getData().add(new XYChart.Data(number.toString(), number));
         }
 
         bc.setMaxHeight(300);
@@ -41,15 +43,8 @@ public class BarChartController {
             numbers.add(i);
         }
 
-        ArrayList<Integer> randomNumberList = new ArrayList<>(N);
+        Collections.shuffle(numbers);
 
-        Random rand = new Random();
-        while(numbers.size() > 0){
-            int randomIndex = rand.nextInt(numbers.size());
-            randomNumberList.add(numbers.get(randomIndex));
-            numbers.remove(randomIndex);
-        }
-
-        return randomNumberList;
+        return numbers;
     }
 }
