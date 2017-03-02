@@ -26,10 +26,22 @@ public class MainController extends VBox{
 
         ObservableList<Tab> tabs = this.sortingTabPane.getTabs();
 
+        // TODO: Dynamicly load the tabs from the Views/Tabs folder
         try {
-            tabs.add(FXMLLoader.load(
-                    getClass().getResource("../Views/Tabs/BubbleSort.fxml")
-            ));
+            tabs.addAll(
+                    FXMLLoader.load(
+                       getClass().getResource("../Views/Tabs/BubbleSort.fxml")
+                    ),
+                    FXMLLoader.load(
+                            getClass().getResource("../Views/Tabs/InsertionSort.fxml")
+                    ),
+                    FXMLLoader.load(
+                            getClass().getResource("../Views/Tabs/QuickSort.fxml")
+                    ),
+                    FXMLLoader.load(
+                            getClass().getResource("../Views/Tabs/About.fxml")
+                    )
+            );
         } catch (IOException e) {
             e.printStackTrace();
         }
