@@ -2,7 +2,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 <Tab text="BubbleSort" id="bubbleSort" xmlns="http://javafx.com/javafx/8.0.112" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sorting.Controllers.tabControllers.BubbleSortController">
-    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" id="bubbleSortAnchor">
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" fx:id="bubbleSortAnchor">
 
     </AnchorPane>
 </Tab>

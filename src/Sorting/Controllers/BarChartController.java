@@ -12,13 +12,13 @@ import java.util.Random;
  * Created by koen on 3/2/17.
  */
 public class BarChartController {
-    private BarChart<String, Number> getRandomBarChart(int N) {
+    public static BarChart<String, Number> getRandomBarChart(int N) {
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
 
         BarChart<String,Number> bc = new BarChart<String,Number>(xAxis,yAxis);
 
-        ArrayList<Integer> randomList = this.getRandomArrayList(N);
+        ArrayList<Integer> randomList = BarChartController.getRandomArrayList(N);
         XYChart.Series series1 = new XYChart.Series();
         series1.setName("random numbers");
 
@@ -34,7 +34,7 @@ public class BarChartController {
         return bc;
     }
 
-    private ArrayList<Integer> getRandomArrayList(int N){
+    private static ArrayList<Integer> getRandomArrayList(int N){
         ArrayList<Integer> numbers = new ArrayList<>(N);
 
         for (int i = 1; i < N+1; i++) {
