@@ -1,6 +1,5 @@
 package Sorting;
 
-import Sorting.Controllers.MainController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -13,13 +12,11 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
 
-        Parent root = FXMLLoader.load(getClass().getResource("mainLayout.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/mainLayout.fxml"));
         primaryStage.setTitle("Hello World");
         Scene scene = new Scene(root, 600, 400);
         primaryStage.setScene(scene);
         primaryStage.show();
-
-        MainController mainController = new MainController(scene);
 
     }
 
