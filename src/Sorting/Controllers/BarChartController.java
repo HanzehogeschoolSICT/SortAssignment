@@ -14,6 +14,14 @@ import java.util.Random;
  * Created by koen on 3/2/17.
  */
 public class BarChartController {
+
+    /**
+     * Create a random barchart with one serie that is N long
+     * and is in random order.
+     *
+     * @param N int how big the serie should be
+     * @return BarChart with random ordered N values in 1 serie
+     */
     public static BarChart<String, Number> getRandomBarChart(int N) {
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
@@ -37,6 +45,12 @@ public class BarChartController {
         return bc;
     }
 
+    /**
+     * Get a ArrayList that counts from 1 to N and sets it in a random order.
+     *
+     * @param N int how long the array should be.
+     * @return ArrayList with N numbers in random order.
+     */
     private static ArrayList<Integer> getRandomArrayList(int N){
         ArrayList<Integer> numbers = new ArrayList<>(N);
 
