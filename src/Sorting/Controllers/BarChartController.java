@@ -41,6 +41,7 @@ public class BarChartController {
         bc.setBarGap(0);
         bc.setCategoryGap(0);
         bc.getData().add(series1);
+        bc.setLayoutY(N);
 
         return bc;
     }
