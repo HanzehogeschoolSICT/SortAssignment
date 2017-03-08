@@ -1,14 +1,13 @@
 package Sorting.Controllers;
 
+import javafx.collections.ObservableList;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.CategoryAxis;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.Random;
 
 /**
  * Created by koen on 3/2/17.
@@ -62,5 +61,16 @@ public class BarChartController {
         Collections.shuffle(numbers);
 
         return numbers;
+    }
+
+    /**
+     * Get the first series data from a barchart
+     *
+     * @param bc The barchart object to extract the data from
+     * @return Observablelist with the data of the serie
+     */
+    private static ObservableList<XYChart.Data<String, Number>> getSeriesData(BarChart<String, Number> bc){
+        XYChart.Series<String, Number> series = bc.getData().get(0);
+        return series.getData();
     }
 }
