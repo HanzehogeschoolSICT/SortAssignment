@@ -12,7 +12,11 @@ public interface SortableBarChart {
 
     void step();
 
-    void reset();
+    void stepButtonPressed();
+
+    void resetButtonPressed();
+
+    void sortButtonPressed();
 
     void drawBarChart();
 
