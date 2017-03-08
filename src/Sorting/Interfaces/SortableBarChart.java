@@ -12,6 +12,8 @@ public interface SortableBarChart {
 
     void step();
 
+    void reset();
+
     void drawBarChart();
 
     void redrawBarChart(List<Integer> Data);
