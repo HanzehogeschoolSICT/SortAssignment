@@ -10,9 +10,13 @@ import java.util.List;
  */
 public interface SortableBarChart {
 
-    void step();
+    List<Integer> step();
 
-    void reset();
+    void stepButtonPressed();
+
+    void resetButtonPressed();
+
+    void sortButtonPressed();
 
     void drawBarChart();
 
