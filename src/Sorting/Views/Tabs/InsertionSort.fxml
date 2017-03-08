@@ -13,7 +13,7 @@
 
         </AnchorPane>
         <ToolBar prefHeight="38.0" prefWidth="600.0">
-            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Step" fx:id="stepButton" onMousePressed="#step" />
+            <Button alignment="BOTTOM_CENTER" mnemonicParsing="false" text="Step" fx:id="stepButton" onMousePressed="#stepButtonPressed" />
             <Button alignment="BOTTOM_CENTER" layoutX="10.0" layoutY="11.0" mnemonicParsing="false" text="Reset" fx:id="resetButton" onMouseClicked="#resetButtonPressed" />
             <HBox alignment="CENTER_RIGHT" prefHeight="26.0" prefWidth="215.0">
                 <Label alignment="CENTER" prefHeight="20.0" prefWidth="167.0" text="Speed (ms):" />

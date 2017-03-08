@@ -48,11 +48,9 @@ public class InsertionSortController implements SortableBarChart {
             for (index = p - 1; (index >= 0) && (data.get(index) > key); index--) {
                 data.set(index + 1, data.get(index));
             }
+
             // Put the key in its proper location.
             data.set(index + 1, key);
-
-            // Redraw the barchart with the new list.
-            redrawBarChart(data);
 
             p++;
             break;
