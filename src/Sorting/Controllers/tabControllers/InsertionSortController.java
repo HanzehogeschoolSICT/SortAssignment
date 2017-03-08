@@ -15,7 +15,7 @@ import java.util.Random;
  * @author Ruben Buisman
  * @version 0.1 (08-03-2017)
  */
-public class InsertionSortController extends supercontroller implements SortableBarChart {
+public class InsertionSortController implements SortableBarChart {
 
     @FXML
     private AnchorPane insertionSortAnchor;
