@@ -2,6 +2,7 @@ package Sorting.Controllers.tabControllers;
 
 import Sorting.Controllers.BarChartController;
 import Sorting.Interfaces.SortableBarChart;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
@@ -26,6 +27,7 @@ public class InsertionSortController implements SortableBarChart {
 
     private BarChart<String, Number> bc;
     private boolean running = false;
+    private int speed = 100;
     static int p = 0;
 
     // Initialize the barchart
@@ -55,6 +57,11 @@ public class InsertionSortController implements SortableBarChart {
             p++;
             break;
         }
+
+        // Stop
+        if (p == data.size()){
+            this.running = false;
+        }
         return data;
     }
 
@@ -78,7 +85,23 @@ public class InsertionSortController implements SortableBarChart {
 
     @Override
     public void sortButtonPressed(){
-        // Does nothing yet.
+        new Thread(() -> {
+            this.speed = Integer.parseInt(speedTextField.getText());
+
+            System.out.println("starting with "+this.speed);
+            this.running = true;
+
+            while(running){
+                try {
+                    Thread.sleep(this.speed);
+                    Platform.runLater(() -> {
+                        redrawBarChart(step());
+                    });
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     @Override
