@@ -26,24 +26,42 @@ public class InsertionSortController implements SortableBarChart {
         drawBarChart();
     }
 
-    // Override drawBarChart from interface SortableBarChart
+    @Override
+    public List<Integer> step() {
+        // Get the arraylist from the barchart
+        List<Integer> data = BarChartController.getSeriesData(this.bc);
+
+        // Test
+        System.out.println("old: "+data);
+
+        return data;
+    }
+
+    @Override
+    public void stepButtonPressed(){
+        // Does nothing yet.
+    }
+
+    @Override
+    public void resetButtonPressed(){
+        // Does nothing yet.
+    }
+
+    @Override
+    public void sortButtonPressed(){
+        // Does nothing yet.
+    }
+
+
     @Override
     public void drawBarChart() {
         insertionSortAnchor.getChildren().add(this.bc);
     }
 
-    // Override step from interface SortableBarChart
-    @Override
-    public void step() {
-        // Get data
-        List<Integer> data = BarChartController.getSeriesData(this.bc);
-        System.out.println("old: "+data);
-
-    }
-
-    // Override redrawBarChart from interface SortableBarChart
     @Override
     public void redrawBarChart(List<Integer> data) {
         // Does nothing yet.
     }
+
+
 }
