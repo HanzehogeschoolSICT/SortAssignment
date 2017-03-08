@@ -7,6 +7,8 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
+import java.util.List;
+import java.util.Random;
 
 /**
  * Created by koen on 3/2/17.
@@ -21,24 +23,30 @@ public class BubbleSortController implements SortableBarChart{
 
     public void initialize(){
         this.bc = BarChartController.getRandomBarChart(20);
+
         drawBarChart();
     }
 
     @Override
     public void step() {
-        XYChart.Series<String, Number> series = this.bc.getData().get(0);
-        ObservableList<XYChart.Data<String, Number>> numbers = series.getData();
+        List<Integer> data = BarChartController.getSeriesData(this.bc);
 
-        int firstValue = (int) numbers.get(stepOffset).getYValue();
-        int secondValue = (int) numbers.get(stepOffset+1).getYValue();
-        System.out.println(numbers.size()+" vs "+this.stepOffset);
-        if(this.stepOffset >= numbers.size()-2)
-            this.stepOffset = 0;
+        System.out.println("old: "+data);
+
+        int first = data.get(stepOffset);
+        int second = data.get(stepOffset+1);
+
+        if(first > second){
+            data.set(stepOffset,second);
+            data.set(stepOffset+1, first);
+        }
+
+        if(stepOffset >= data.size() -2)
+            stepOffset = 0;
         else
-            this.stepOffset++;
+            stepOffset++;
 
-        System.out.println("first: "+firstValue);
-        System.out.println("second: "+secondValue);
+        redrawBarChart(data);
     }
 
     public void sort(){
@@ -52,5 +60,26 @@ public class BubbleSortController implements SortableBarChart{
     @Override
     public void drawBarChart() {
         bubbleSortAnchor.getChildren().add(this.bc);
+    }
+
+    /**
+     * Redraw a barchart with new data
+     * @param data List with the new values for the barchart
+     */
+    @Override
+    public void redrawBarChart(List<Integer> data) {
+        this.bc.getData().remove(0);
+
+        System.out.println("new: "+data);
+        XYChart.Series serie = new XYChart.Series();
+        serie.setName("test");
+        Random r = new Random();
+
+        for (int i = 0; i < data.size(); i++) {
+            serie.getData().add(new XYChart.Data(""+i, data.get(i)));
+        }
+
+        this.bc.getData().add(serie);
+
     }
 }

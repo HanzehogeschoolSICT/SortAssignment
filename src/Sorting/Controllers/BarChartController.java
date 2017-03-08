@@ -29,18 +29,18 @@ public class BarChartController {
         BarChart<String,Number> bc = new BarChart<String,Number>(xAxis,yAxis);
 
         ArrayList<Integer> randomList = BarChartController.getRandomArrayList(N);
-        XYChart.Series series1 = new XYChart.Series();
-        series1.setName("random numbers");
+        XYChart.Series serie = new XYChart.Series();
+        serie.setName("random numbers");
 
-        for (Integer number : randomList) {
-            series1.getData().add(new XYChart.Data(number.toString(), number));
+        for (int i = 0; i < randomList.size(); i++) {
+            serie.getData().add(new XYChart.Data(""+i, randomList.get(i)));
         }
 
         bc.setMaxHeight(330);
         bc.setPrefWidth(600);
         bc.setBarGap(0);
         bc.setCategoryGap(0);
-        bc.getData().add(series1);
+        bc.getData().add(serie);
         bc.setLayoutY(N);
         bc.setAnimated(false);
 

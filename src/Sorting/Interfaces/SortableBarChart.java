@@ -1,6 +1,6 @@
 package Sorting.Interfaces;
 
-import javafx.scene.chart.BarChart;
+import java.util.List;
 
 /**
  * Class SortableBarChart
@@ -13,4 +13,6 @@ public interface SortableBarChart {
     void step();
 
     void drawBarChart();
+
+    void redrawBarChart(List<Integer> Data);
 }
