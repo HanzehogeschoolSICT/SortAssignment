@@ -19,6 +19,7 @@ public class InsertionSortController implements SortableBarChart {
     private AnchorPane insertionSortAnchor;
     private BarChart<String, Number> bc;
 
+    public int p = 0;
 
     // Initialize the barchart
     public void initialize(){
@@ -28,12 +29,27 @@ public class InsertionSortController implements SortableBarChart {
 
     @Override
     public List<Integer> step() {
-        // Get the arraylist from the barchart
+        // Get the list from the barchart.
         List<Integer> data = BarChartController.getSeriesData(this.bc);
 
-        // Test
-        System.out.println("old: "+data);
+        // InsertionSort loop to order the list.
+        int key;
+        int index;
 
+        for (; p < data.size(); p++) {
+            key = data.get(p);
+            for (index = p - 1; (index >= 0) && (data.get(index) > key); index--) {
+                data.set(index + 1, data.get(index));
+            }
+            // Put the key in its proper location.
+            data.set(index + 1, key);
+
+            // Redraw the barchart with the new list.
+            redrawBarChart(data);
+
+            p++;
+            break;
+        }
         return data;
     }
 
@@ -52,7 +68,6 @@ public class InsertionSortController implements SortableBarChart {
         // Does nothing yet.
     }
 
-
     @Override
     public void drawBarChart() {
         insertionSortAnchor.getChildren().add(this.bc);
@@ -62,6 +77,4 @@ public class InsertionSortController implements SortableBarChart {
     public void redrawBarChart(List<Integer> data) {
         // Does nothing yet.
     }
-
-
 }
