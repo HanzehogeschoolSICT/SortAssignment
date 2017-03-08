@@ -49,6 +49,15 @@ public class BubbleSortController implements SortableBarChart{
         redrawBarChart(data);
     }
 
+    /**
+     * Reset the tab view with a new barchart
+     */
+    @Override
+    public void reset() {
+        this.bubbleSortAnchor.getChildren().removeAll();
+        this.initialize();
+    }
+
     public void sort(){
         XYChart.Series<String, Number> series = this.bc.getData().get(0);
         ObservableList<XYChart.Data<String, Number>> numbers = series.getData();
