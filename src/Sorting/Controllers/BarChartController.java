@@ -8,6 +8,7 @@ import javafx.scene.chart.XYChart;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by koen on 3/2/17.
@@ -69,8 +70,14 @@ public class BarChartController {
      * @param bc The barchart object to extract the data from
      * @return Observablelist with the data of the serie
      */
-    private static ObservableList<XYChart.Data<String, Number>> getSeriesData(BarChart<String, Number> bc){
+    public static List<Integer> getSeriesData(BarChart<String, Number> bc){
+        List<Integer> serieData = new ArrayList<>();
         XYChart.Series<String, Number> series = bc.getData().get(0);
-        return series.getData();
+        ObservableList<XYChart.Data<String, Number>> numbers = series.getData();
+        for (XYChart.Data<String, Number> data : numbers) {
+            serieData.add((Integer) data.getYValue());
+        }
+
+        return serieData;
     }
 }
