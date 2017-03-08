@@ -62,7 +62,9 @@ public class InsertionSortController implements SortableBarChart {
 
     @Override
     public void resetButtonPressed(){
-        // Does nothing yet.
+        this.insertionSortAnchor.getChildren().removeAll();
+        this.p = 0;
+        this.initialize();
     }
 
     @Override
