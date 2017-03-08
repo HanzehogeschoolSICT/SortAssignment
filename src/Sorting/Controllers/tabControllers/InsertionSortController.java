@@ -4,8 +4,10 @@ import Sorting.Controllers.BarChartController;
 import Sorting.Interfaces.SortableBarChart;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.XYChart;
 import javafx.scene.layout.AnchorPane;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Class InsertionSortController
@@ -13,7 +15,7 @@ import java.util.List;
  * @author Ruben Buisman
  * @version 0.1 (08-03-2017)
  */
-public class InsertionSortController implements SortableBarChart {
+public class InsertionSortController extends supercontroller implements SortableBarChart {
 
     @FXML
     private AnchorPane insertionSortAnchor;
@@ -75,6 +77,15 @@ public class InsertionSortController implements SortableBarChart {
 
     @Override
     public void redrawBarChart(List<Integer> data) {
-        // Does nothing yet.
+        this.bc.getData().remove(0);
+        XYChart.Series serie = new XYChart.Series();
+        serie.setName("test");
+        Random r = new Random();
+
+        for (int i = 0; i < data.size(); i++) {
+            serie.getData().add(new XYChart.Data(""+(i+1), data.get(i)));
+        }
+
+        this.bc.getData().add(serie);
     }
 }
