@@ -1,7 +1,18 @@
 package Sorting.Controllers.tabControllers;
 
+import Sorting.Interfaces.SortableBarChart;
+import javafx.fxml.FXML;
+import javafx.scene.layout.AnchorPane;
+
 /**
- * Created by Ruben on 3/8/2017.
+ * Class InsertionSortController
+ *
+ * @author Ruben Buisman
+ * @version 0.1 (08-03-2017)
  */
-public class InsertionSortController {
+public class InsertionSortController implements SortableBarChart {
+
+    @FXML
+    private AnchorPane insertionSortAnchor;
+
 }
