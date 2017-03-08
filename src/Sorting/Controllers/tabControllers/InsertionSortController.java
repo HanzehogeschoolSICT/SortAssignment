@@ -5,6 +5,7 @@ import Sorting.Interfaces.SortableBarChart;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.XYChart;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.List;
 import java.util.Random;
@@ -19,9 +20,13 @@ public class InsertionSortController implements SortableBarChart {
 
     @FXML
     private AnchorPane insertionSortAnchor;
-    private BarChart<String, Number> bc;
 
-    public int p = 0;
+    @FXML
+    private TextField speedTextField;
+
+    private BarChart<String, Number> bc;
+    private boolean running = false;
+    static int p = 0;
 
     // Initialize the barchart
     public void initialize(){
@@ -57,7 +62,9 @@ public class InsertionSortController implements SortableBarChart {
 
     @Override
     public void stepButtonPressed(){
-        // Does nothing yet.
+        if(this.running)
+            this.running = false;
+        redrawBarChart(step());
     }
 
     @Override
