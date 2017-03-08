@@ -33,7 +33,7 @@ public class BarChartController {
         serie.setName("random numbers");
 
         for (int i = 0; i < randomList.size(); i++) {
-            serie.getData().add(new XYChart.Data(""+i, randomList.get(i)));
+            serie.getData().add(new XYChart.Data(""+(i+1), randomList.get(i)));
         }
 
         bc.setMaxHeight(330);
