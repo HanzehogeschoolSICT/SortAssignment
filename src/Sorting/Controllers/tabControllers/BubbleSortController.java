@@ -78,7 +78,7 @@ public class BubbleSortController extends AbstractSortController{
     }
 
     /**
-     * Reset the tab view with a new barchart
+     * Reset the tab view with a new BarChart
      */
     @Override
     public void resetButtonPressed() {
