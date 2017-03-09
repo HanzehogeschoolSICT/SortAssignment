@@ -25,11 +25,15 @@ public class QuickSortController extends AbstractSortController {
 
     private boolean running = false;
     private int speed = 100;
-    private BarChart<String, Number> bc;
+
 
     public void initialize(){
-        this.bc = BarChartController.getRandomBarChart(20);
-        drawBarChart();
+        // Tell the AbstractSortController which pane and textfield we have.
+        super.setAnchorPane(quickSortAnchor);
+        super.setSpeedTextField(speedTextField);
+
+        // Initialize the AbstractSortController to create and draw the BarChart.
+        super.initialize();
     }
 
     public void stepButtonPressed(){
@@ -40,7 +44,7 @@ public class QuickSortController extends AbstractSortController {
 
     @Override
     public List<Integer> step() {
-        List<Integer> data = BarChartController.getSeriesData(this.bc);
+        List<Integer> data = super.getSerieData();
 
         // TODO sort the data with quicksort
 
@@ -86,6 +90,6 @@ public class QuickSortController extends AbstractSortController {
 
     @Override
     public void drawBarChart() {
-        quickSortAnchor.getChildren().add(this.bc);
+        quickSortAnchor.getChildren().add(super.bc);
     }
 }
