@@ -28,7 +28,7 @@ public class InsertionSortController implements SortableBarChart {
     private BarChart<String, Number> bc;
     private boolean running = false;
     private int speed = 100;
-    static int p = 0;
+    private int insertionIndex = 0;
 
     // Initialize the barchart
     public void initialize(){
@@ -43,23 +43,23 @@ public class InsertionSortController implements SortableBarChart {
 
         // InsertionSort loop to order the list.
         int key;
-        int index;
+        int i;
 
-        for (; p < data.size(); p++) {
-            key = data.get(p);
-            for (index = p - 1; (index >= 0) && (data.get(index) > key); index--) {
-                data.set(index + 1, data.get(index));
+        for (; insertionIndex < data.size(); insertionIndex++) {
+            key = data.get(insertionIndex);
+            for (i = insertionIndex - 1; (i >= 0) && (data.get(i) > key); i--) {
+                data.set(i + 1, data.get(i));
             }
 
             // Put the key in its proper location.
-            data.set(index + 1, key);
+            data.set(i + 1, key);
 
-            p++;
+            insertionIndex++;
             break;
         }
 
         // Stop
-        if (p == data.size()){
+        if (insertionIndex == data.size()){
             this.running = false;
         }
         return data;
@@ -75,7 +75,7 @@ public class InsertionSortController implements SortableBarChart {
     @Override
     public void resetButtonPressed(){
         this.insertionSortAnchor.getChildren().removeAll();
-        this.p = 0;
+        this.insertionIndex = 0;
 
         if(running)
             this.running = false;
