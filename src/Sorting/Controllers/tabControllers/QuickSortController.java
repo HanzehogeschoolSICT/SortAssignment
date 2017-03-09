@@ -1,5 +1,6 @@
 package Sorting.Controllers.tabControllers;
 
+import Sorting.Controllers.AbstractSortController;
 import Sorting.Controllers.BarChartController;
 import Sorting.Interfaces.SortableBarChart;
 import javafx.application.Platform;
@@ -14,7 +15,7 @@ import java.util.Random;
 /**
  * Created by koen on 3/2/17.
  */
-public class QuickSortController implements SortableBarChart{
+public class QuickSortController extends AbstractSortController {
 
     @FXML
     private AnchorPane quickSortAnchor;
@@ -52,8 +53,6 @@ public class QuickSortController implements SortableBarChart{
     @Override
     public void resetButtonPressed() {
         this.quickSortAnchor.getChildren().removeAll();
-        this.stepOffset = 0;
-        this.finished = 0;
 
         if(running)
             this.running = false;
