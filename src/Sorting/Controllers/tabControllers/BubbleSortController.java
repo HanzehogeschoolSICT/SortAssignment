@@ -38,6 +38,12 @@ public class BubbleSortController extends AbstractSortController{
         super.initialize();
     }
 
+    /**
+     * Do one step forward in the Bubble Sort algorithm. This will get the data
+     * from the BarChart and will return the new data as a list with integers.
+     *
+     * @return List with the new order of the integers
+     */
     @Override
     public List<Integer> step() {
         // Get the current Y axis data from the BarChart as a List with integers
