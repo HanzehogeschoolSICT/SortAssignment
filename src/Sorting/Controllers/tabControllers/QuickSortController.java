@@ -88,24 +88,4 @@ public class QuickSortController extends AbstractSortController {
     public void drawBarChart() {
         quickSortAnchor.getChildren().add(this.bc);
     }
-
-    /**
-     * Redraw a barchart with new data
-     *
-     * @param data List with the new values for the barchart
-     */
-    @Override
-    public void redrawBarChart(List<Integer> data) {
-        this.bc.getData().remove(0);
-        XYChart.Series serie = new XYChart.Series();
-        serie.setName("test");
-        Random r = new Random();
-
-        for (int i = 0; i < data.size(); i++) {
-            serie.getData().add(new XYChart.Data(""+(i+1), data.get(i)));
-        }
-
-        this.bc.getData().add(serie);
-
-    }
 }
