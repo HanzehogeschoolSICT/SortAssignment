@@ -11,16 +11,19 @@ import java.util.Collections;
 import java.util.List;
 
 /**
- * Created by koen on 3/2/17.
+ * Class BarChartController
+ *
+ * @author Koen Hendriks
+ * @version 0.1 (09-03-2017)
  */
 public class BarChartController {
 
     /**
-     * Create a random barchart with one serie that is N long
+     * Create a random BarChart with one serie that is N long
      * and is in random order.
      *
-     * @param N int how big the serie should be
-     * @return BarChart with random ordered N values in 1 serie
+     * @param N int how big the serie should be.
+     * @return BarChart with random ordered N values in 1 serie.
      */
     public static BarChart<String, Number> getRandomBarChart(int N) {
         CategoryAxis xAxis = new CategoryAxis();
@@ -30,7 +33,6 @@ public class BarChartController {
 
         ArrayList<Integer> randomList = BarChartController.getRandomArrayList(N);
         XYChart.Series serie = new XYChart.Series();
-        serie.setName("random numbers");
 
         for (int i = 0; i < randomList.size(); i++) {
             serie.getData().add(new XYChart.Data(""+(i+1), randomList.get(i)));
@@ -66,10 +68,10 @@ public class BarChartController {
     }
 
     /**
-     * Get the first series data from a barchart
+     * Get the first series data from a BarChart
      *
-     * @param bc The barchart object to extract the data from
-     * @return Observablelist with the data of the serie
+     * @param bc The BarChart object to extract the data from
+     * @return ObservableList with the data of the serie
      */
     public static List<Integer> getSeriesData(BarChart<String, Number> bc){
         List<Integer> serieData = new ArrayList<>();
