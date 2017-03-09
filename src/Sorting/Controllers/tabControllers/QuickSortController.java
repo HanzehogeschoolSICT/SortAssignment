@@ -1,19 +1,17 @@
 package Sorting.Controllers.tabControllers;
 
 import Sorting.Controllers.AbstractSortController;
-import Sorting.Controllers.BarChartController;
-import Sorting.Interfaces.SortableBarChart;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.List;
-import java.util.Random;
+
 
 /**
- * Created by koen on 3/2/17.
+ * Class QuickSortController
+ *
+ * @author Koen Hendriks & Ruben Buisman
+ * @version 0.1 (02-03-2017)
  */
 public class QuickSortController extends AbstractSortController {
 
