@@ -1,15 +1,10 @@
 package Sorting.Controllers.tabControllers;
 
 import Sorting.Controllers.AbstractSortController;
-import Sorting.Controllers.BarChartController;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.chart.BarChart;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Class InsertionSortController
