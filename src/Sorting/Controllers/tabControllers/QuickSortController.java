@@ -23,10 +23,6 @@ public class QuickSortController extends AbstractSortController {
     @FXML
     private TextField speedTextField;
 
-    private boolean running = false;
-    private int speed = 100;
-
-
     public void initialize(){
         // Tell the AbstractSortController which pane and textfield we have.
         super.setAnchorPane(quickSortAnchor);
@@ -34,12 +30,6 @@ public class QuickSortController extends AbstractSortController {
 
         // Initialize the AbstractSortController to create and draw the BarChart.
         super.initialize();
-    }
-
-    public void stepButtonPressed(){
-        if(this.running)
-            this.running = false;
-        redrawBarChart(step());
     }
 
     @Override
@@ -56,40 +46,9 @@ public class QuickSortController extends AbstractSortController {
      */
     @Override
     public void resetButtonPressed() {
-        this.quickSortAnchor.getChildren().removeAll();
 
-        if(running)
-            this.running = false;
+        // TODO add fields to clear
 
-        this.initialize();
-    }
-
-    @Override
-    public void sortButtonPressed(){
-        new Thread(() -> {
-            this.speed = Integer.parseInt(speedTextField.getText());
-
-            System.out.println("starting with "+this.speed);
-            this.running = true;
-
-            while(running){
-                try {
-                    Thread.sleep(this.speed);
-                    Platform.runLater(() -> {
-                        redrawBarChart(step());
-                    });
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-        }).start();
-
-
-
-    }
-
-    @Override
-    public void drawBarChart() {
-        quickSortAnchor.getChildren().add(super.bc);
+        super.resetButtonPressed();
     }
 }
