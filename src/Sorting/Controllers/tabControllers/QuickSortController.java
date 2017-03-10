@@ -22,7 +22,7 @@ public class QuickSortController extends AbstractSortController {
     private TextField speedTextField;
 
     // tempData for swap method
-    private List<Integer> tempData;
+    private List<Integer> stepData;
 
     public void initialize(){
         // Tell the AbstractSortController which pane and textfield we have.
@@ -41,8 +41,8 @@ public class QuickSortController extends AbstractSortController {
     }
 
     private List<Integer> stepQuickSort(List<Integer> data) {
-        tempData = data;
-        return quickSort(0, (tempData.size() - 1));
+        stepData = data;
+        return quickSort(0, (stepData.size() - 1));
     }
 
     private List<Integer> quickSort(int lowest, int highest){
@@ -77,9 +77,9 @@ public class QuickSortController extends AbstractSortController {
     }
 
     private void swap(int i, int j) {
-        int temp = tempData.get(i);
-        tempData.set(i, tempData.get(j));
-        tempData.set(j, temp);
+        int temp = stepData.get(i);
+        stepData.set(i, stepData.get(j));
+        stepData.set(j, temp);
     }
 
 
@@ -88,7 +88,7 @@ public class QuickSortController extends AbstractSortController {
      */
     @Override
     public void resetButtonPressed() {
-        tempData.clear();
+        stepData.clear();
         super.resetButtonPressed();
     }
 }
