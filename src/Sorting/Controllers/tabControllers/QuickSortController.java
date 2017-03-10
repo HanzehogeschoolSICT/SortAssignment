@@ -21,6 +21,8 @@ public class QuickSortController extends AbstractSortController {
     @FXML
     private TextField speedTextField;
 
+    private List<Integer> tempData;
+
     public void initialize(){
         // Tell the AbstractSortController which pane and textfield we have.
         super.setAnchorPane(quickSortAnchor);
@@ -32,12 +34,43 @@ public class QuickSortController extends AbstractSortController {
 
     @Override
     public List<Integer> step() {
-        List<Integer> data = super.getSerieData();
-
-        // TODO sort the data with quicksort
+        final List<Integer> data = super.getSerieData();
 
         return data;
     }
+
+
+    private List<Integer> quickSort(int lowest, int highest){
+        final List<Integer> data = super.getSerieData();
+        int low = lowest;
+        int high = highest;
+        int pivot = data.get(lowest + ((highest - lowest) / 2));
+
+        while (low <= high){
+            while (data.get(low) < pivot){
+                low ++;
+            }
+            while (data.get(high) > pivot){
+                high--;
+            }
+            if(low <= high){
+                swap(low, high);
+                low++;
+                high--;
+                break;
+            }
+        }
+
+        if (lowest < high ) {
+            quickSort(lowest, high);
+        }
+
+        if (low < highest) {
+            quickSort(low, highest);
+        }
+        return data;
+    }
+
 
     /**
      * Reset the tab view with a new barchart
