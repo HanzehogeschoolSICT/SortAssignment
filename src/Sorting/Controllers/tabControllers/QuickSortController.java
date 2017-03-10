@@ -21,6 +21,7 @@ public class QuickSortController extends AbstractSortController {
     @FXML
     private TextField speedTextField;
 
+    // tempData for swap method
     private List<Integer> tempData;
 
     public void initialize(){
@@ -39,7 +40,7 @@ public class QuickSortController extends AbstractSortController {
         return data;
     }
 
-    public List<Integer> stepQuickSort(List<Integer> data) {
+    private List<Integer> stepQuickSort(List<Integer> data) {
         tempData = data;
         return quickSort(0, (tempData.size() - 1));
     }
@@ -87,9 +88,7 @@ public class QuickSortController extends AbstractSortController {
      */
     @Override
     public void resetButtonPressed() {
-
-        // TODO add fields to clear
-
+        tempData.clear();
         super.resetButtonPressed();
     }
 }
