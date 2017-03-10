@@ -35,7 +35,11 @@ public class QuickSortController extends AbstractSortController {
 
     @Override
     public List<Integer> step() {
+        // Get the current Y axis data from the BarChart as a List with integers
         final List<Integer> data = super.getSerieData();
+
+        // TODO Create something to get "running = false" to stop the step() method when sortButtonPressed() is used.
+
         stepQuickSort(data);
         return data;
     }
@@ -59,7 +63,7 @@ public class QuickSortController extends AbstractSortController {
                 high--;
             }
             if(low <= high){
-                swap(low, high);
+                swapValues(low, high);
                 low++;
                 high--;
                 break;
@@ -76,7 +80,7 @@ public class QuickSortController extends AbstractSortController {
         return data;
     }
 
-    private void swap(int i, int j) {
+    private void swapValues(int i, int j) {
         int temp = stepData.get(i);
         stepData.set(i, stepData.get(j));
         stepData.set(j, temp);
