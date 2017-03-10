@@ -39,7 +39,6 @@ public class QuickSortController extends AbstractSortController {
         return data;
     }
 
-
     private List<Integer> quickSort(int lowest, int highest){
         final List<Integer> data = super.getSerieData();
         int low = lowest;
@@ -69,6 +68,12 @@ public class QuickSortController extends AbstractSortController {
             quickSort(low, highest);
         }
         return data;
+    }
+
+    private void swap(int i, int j) {
+        int temp = tempData.get(i);
+        tempData.set(i, tempData.get(j));
+        tempData.set(j, temp);
     }
 
 
