@@ -35,8 +35,13 @@ public class QuickSortController extends AbstractSortController {
     @Override
     public List<Integer> step() {
         final List<Integer> data = super.getSerieData();
-
+        stepQuickSort(data);
         return data;
+    }
+
+    public List<Integer> stepQuickSort(List<Integer> data) {
+        tempData = data;
+        return quickSort(0, (tempData.size() - 1));
     }
 
     private List<Integer> quickSort(int lowest, int highest){
