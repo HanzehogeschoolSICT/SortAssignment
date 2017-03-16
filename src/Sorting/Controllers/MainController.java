@@ -6,8 +6,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 
+import java.io.File;
 import java.io.IOException;
-import java.net.URL;
 
 
 public class MainController extends VBox{
@@ -25,26 +25,16 @@ public class MainController extends VBox{
     private void createTabs() {
 
         ObservableList<Tab> tabs = this.sortingTabPane.getTabs();
-
-        // TODO: Dynamicly load the tabs from the Views/Tabs folder
         try {
-            tabs.addAll(
-                    FXMLLoader.load(
-                       getClass().getResource("../Views/Tabs/BubbleSort.fxml")
-                    ),
-                    FXMLLoader.load(
-                            getClass().getResource("../Views/Tabs/InsertionSort.fxml")
-                    ),
-                    FXMLLoader.load(
-                            getClass().getResource("../Views/Tabs/QuickSort.fxml")
-                    ),
-                    FXMLLoader.load(
-                            getClass().getResource("../Views/Tabs/About.fxml")
-                    )
-            );
+            // Create an array with the file names and add the FXML for each file.
+            File[] tabViews = new File("./src/Sorting/Views/Tabs").listFiles();
+            if (tabViews != null) {
+                for(File tabView : tabViews){
+                    tabs.add(FXMLLoader.load(getClass().getResource("../Views/Tabs/" +tabView.getName())));
+                }
+            }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 }

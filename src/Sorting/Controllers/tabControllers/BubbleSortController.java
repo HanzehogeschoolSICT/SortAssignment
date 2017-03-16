@@ -50,34 +50,43 @@ public class BubbleSortController extends AbstractSortController{
         List<Integer> data = super.getSerieData();
 
         // Stop running if we are finished
-        if(finished >= data.size()){
+        if(finished >= data.size())
             this.running = false;
-        }else {
-            /*
-              Set the first two values for the Bubble Sort algorithm.
-              These values come from the BarChart with the offset that
-              we keep track on.
-             */
-            int first = data.get(stepOffset);
-            int second = data.get(stepOffset + 1);
+        else
+            return this.bubbleSortStep(data);
 
-            // If the first value is bigger then second we swap them.
-            if (first > second) {
-                data.set(stepOffset, second);
-                data.set(stepOffset + 1, first);
-            }
+        return data;
+    }
 
-            /*
-             Subtract the finished values from the array size,
-             this way it won't repeat the step of the values
-             that are already sorted at the end of the array.
-              */
-            if (stepOffset >= (data.size() - finished) - 2) {
-                stepOffset = 0;
-                finished++;
-            } else {
-                stepOffset++;
-            }
+    /**
+     * Do a bubble sort step with the data
+     * @param data List with the values to sort on
+     */
+    private List<Integer> bubbleSortStep(List<Integer> data) {
+        /*
+          Set the first two values for the Bubble Sort algorithm.
+          These values come from the BarChart with the offset that
+          we keep track on.
+         */
+        int first = data.get(stepOffset);
+        int second = data.get(stepOffset + 1);
+
+        // If the first value is bigger then second we swap them.
+        if (first > second) {
+            data.set(stepOffset, second);
+            data.set(stepOffset + 1, first);
+        }
+
+        /*
+         Subtract the finished values from the array size,
+         this way it won't repeat the step of the values
+         that are already sorted at the end of the array.
+          */
+        if (stepOffset >= (data.size() - finished) - 2) {
+            stepOffset = 0;
+            finished++;
+        } else {
+            stepOffset++;
         }
 
         return data;
