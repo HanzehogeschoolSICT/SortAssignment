@@ -25,7 +25,7 @@ public class BarChartController {
      * @param N int how big the serie should be.
      * @return BarChart with random ordered N values in 1 serie.
      */
-    public static BarChart<String, Number> getRandomBarChart(int N) {
+    static BarChart<String, Number> getRandomBarChart(int N) {
         CategoryAxis xAxis = new CategoryAxis();
         NumberAxis yAxis = new NumberAxis();
 
@@ -38,14 +38,25 @@ public class BarChartController {
             serie.getData().add(new XYChart.Data(""+(i+1), randomList.get(i)));
         }
 
+        bc.getData().add(serie);
+        bc.setLayoutY(N);
+
+        return styleBarChart(bc);
+    }
+
+    /**
+     * Method which styles the BarChart with the default settings we have
+     * for our application.
+     *
+     * @param bc BarChart that will be styled.
+     * @return BarChart with the correct settings for our application
+     */
+    private static BarChart<String,Number> styleBarChart(BarChart<String, Number> bc) {
         bc.setMaxHeight(330);
         bc.setPrefWidth(600);
         bc.setBarGap(0);
         bc.setCategoryGap(0);
-        bc.getData().add(serie);
-        bc.setLayoutY(N);
         bc.setAnimated(false);
-
         return bc;
     }
 
