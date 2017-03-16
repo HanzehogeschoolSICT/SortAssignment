@@ -45,27 +45,30 @@ public class InsertionSortController extends AbstractSortController {
         // Get the current Y axis data from the BarChart as a List with integers
         List<Integer> data = super.getSerieData();
 
+        // Stop if we don't have any values anymore.
+        if (insertionIndex >= data.size()){
+            this.running = false;
+        }else{
+            return this.insertionSortStep(data);
+        }
+
+        return data;
+    }
+
+    private List<Integer> insertionSortStep(List<Integer> data) {
         // InsertionSort loop to order the list.
         int key;
         int i;
 
-        for (; insertionIndex < data.size(); insertionIndex++) {
-            key = data.get(insertionIndex);
-            for (i = insertionIndex - 1; (i >= 0) && (data.get(i) > key); i--) {
-                data.set(i + 1, data.get(i));
-            }
-
-            // Put the key in its proper location.
-            data.set(i + 1, key);
-
-            insertionIndex++;
-            break;
+        key = data.get(insertionIndex);
+        for (i = insertionIndex - 1; (i >= 0) && (data.get(i) > key); i--) {
+            data.set(i + 1, data.get(i));
         }
 
-        // Stop
-        if (insertionIndex == data.size()){
-            this.running = false;
-        }
+        // Put the key in its proper location.
+        data.set(i + 1, key);
+        insertionIndex++;
+
         return data;
     }
 
