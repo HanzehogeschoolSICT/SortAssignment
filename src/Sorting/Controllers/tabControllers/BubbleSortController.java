@@ -1,7 +1,6 @@
 package Sorting.Controllers.tabControllers;
 
 import Sorting.Controllers.AbstractSortController;
-import Sorting.Controllers.BarChartController;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -23,7 +22,6 @@ public class BubbleSortController extends AbstractSortController{
 
     private int stepOffset = 0;
     private int finished = 0;
-    private int speed = 100;
 
     /**
      * Initialize method that gets called by the FXML when the controller is injected.
@@ -62,7 +60,7 @@ public class BubbleSortController extends AbstractSortController{
      * Do a bubble sort step with the data
      * @param data List with the values to sort on
      */
-    private List<Integer> bubbleSortStep(List<Integer> data) {
+    public List<Integer> bubbleSortStep(List<Integer> data) {
         /*
           Set the first two values for the Bubble Sort algorithm.
           These values come from the BarChart with the offset that

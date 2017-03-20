@@ -66,7 +66,7 @@ public class BarChartController {
      * @param N int how long the array should be.
      * @return ArrayList with N numbers in random order.
      */
-    private static ArrayList<Integer> getRandomArrayList(int N){
+    public static ArrayList<Integer> getRandomArrayList(int N){
         ArrayList<Integer> numbers = new ArrayList<>(N);
 
         for (int i = 1; i < N+1; i++) {
