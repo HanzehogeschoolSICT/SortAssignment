@@ -33,12 +33,27 @@ public class QuickSortController extends AbstractSortController {
         super.initialize();
     }
 
+    /**
+     * Boolean to see if we finished with QuickSort
+     *
+     * @return boolean if we need to keep sorting
+     */
+    public boolean keepRunning(){
+        for(int x = 1; x < stepData.size(); x++) {
+            int lowValue = stepData.get(x-1);
+            int highValue = stepData.get(x);
+
+            if(lowValue > highValue) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public List<Integer> step() {
         // Get the current Y axis data from the BarChart as a List with integers
         final List<Integer> data = super.getSerieData();
-
-        // TODO Create something to get "running = false" to stop the step() method when sortButtonPressed() is used.
 
         stepQuickSort(data);
         return data;
@@ -46,9 +61,21 @@ public class QuickSortController extends AbstractSortController {
 
     private List<Integer> stepQuickSort(List<Integer> data) {
         stepData = data;
-        return quickSort(0, (stepData.size() - 1));
+        if(!keepRunning()) {
+            running = false;
+        }else {
+            return quickSort(0, (stepData.size() - 1));
+        }
+        return stepData;
     }
 
+    /**
+     * Quicksort method to call recursively.
+     *
+     * @param lowest number for the quicksort
+     * @param highest number for the quicksort
+     * @return List with sorted data.
+     */
     private List<Integer> quickSort(int lowest, int highest){
         final List<Integer> data = super.getSerieData();
         int low = lowest;
@@ -80,6 +107,12 @@ public class QuickSortController extends AbstractSortController {
         return data;
     }
 
+    /**
+     * Switch 2 values in the QuickSort data arraylist
+     *
+     * @param i first value to swap
+     * @param j second value to swap
+     */
     private void swapValues(int i, int j) {
         int temp = stepData.get(i);
         stepData.set(i, stepData.get(j));
