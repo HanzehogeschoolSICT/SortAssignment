@@ -11,7 +11,7 @@ import java.util.List;
  * Class QuickSortController
  *
  * @author Koen Hendriks & Ruben Buisman
- * @version 0.1 (02-03-2017)
+ * @version 0.3 (02-03-2017)
  */
 public class QuickSortController extends AbstractSortController {
 
@@ -38,7 +38,7 @@ public class QuickSortController extends AbstractSortController {
      *
      * @return boolean if we need to keep sorting
      */
-    public boolean keepRunning(){
+    private boolean keepRunning(){
         for(int x = 1; x < stepData.size(); x++) {
             int lowValue = stepData.get(x-1);
             int highValue = stepData.get(x);
