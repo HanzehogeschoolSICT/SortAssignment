@@ -13,10 +13,12 @@ public class App extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         Parent root = FXMLLoader.load(getClass().getResource("Views/MainLayout.fxml"));
-        primaryStage.setTitle("Hello World");
-        Scene scene = new Scene(root, 600, 400);
+        primaryStage.setTitle("Graphical Sorting");
+        Scene scene = new Scene(root, 600, 385);
         primaryStage.setScene(scene);
+        primaryStage.setResizable(false);
         primaryStage.show();
+
     }
 
 
